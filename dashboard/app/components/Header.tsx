@@ -21,20 +21,20 @@ export default function Header() {
 
       {/* Navigation links */}
       <nav className="hidden md:flex space-x-6">
-        <Link href="/" className="hover:text-red-500 transition text-white">
+        <Link href="/" className="text-white hover:text-red-500 transition">
           Home
         </Link>
-        <Link href="/tv-shows" className="hover:text-red-500 transition text-white">
+        <Link href="/tv-shows" className="text-white hover:text-red-500 transition">
           TV Shows
         </Link>
-        <Link href="/movies" className="hover:text-red-500 transition text-white">
+        <Link href="/movies" className="text-white hover:text-red-500 transition">
           Movies
         </Link>
       </nav>
       
       {/* User profile/Search placeholder */}
       <div className="flex items-center space-x-4">
-        <button className="text-sm border border-red-600 px-3 py-1 rounded hover:bg-red-600 transition text-white">
+        <button className="text-white text-sm border border-red-600 px-3 py-1 rounded hover:bg-red-600 transition">
           Sign In
         </button>
       </div>

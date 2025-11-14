@@ -31,7 +31,7 @@ export default function HeroBanner({ movie }: { movie: Movie }) {
           <h1 className="text-5xl md:text-7xl font-extrabold mb-4 drop-shadow-lg group-hover:text-red-500 transition">
             {movie.title}
           </h1>
-          <p className="text-lg max-w-xl line-clamp-3 mb-4 text-whit">
+          <p className=" text-white text-lg max-w-xl line-clamp-3 mb-4">
             {movie.overview}
           </p>
           <button className="w-fit px-6 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition">
