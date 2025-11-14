@@ -38,8 +38,8 @@ export default async function HomePage() {
         id: 1,
         title: "Mock Popular Movie",
         overview: "This is a mock movie for development purposes.",
-        poster_path: "/placeholder.jpg",
-        backdrop_path: "/placeholder.jpg",
+        poster_path: null,
+        backdrop_path: null,
         release_date: "2023-01-01",
         vote_average: 8.5,
         genre_ids: [28, 12], // Action, Adventure

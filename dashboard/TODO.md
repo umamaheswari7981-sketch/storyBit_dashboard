@@ -1,5 +1,6 @@
-# TODO: Resolve TMDB API Key Error
+# TODO: Add Retry Logic to TMDB Fetch Functions
 
-- [x] Remove top-level API key check in lib/tmdb.ts
-- [x] Add API key check in fetchMovieList function
-- [x] Add API key check in fetchMovieById function
+- [x] Add a retry helper function in `lib/tmdb.ts` to handle transient network errors like ECONNRESET.
+- [x] Modify `fetchMovieList` to use the retry logic.
+- [x] Modify `fetchMovieById` to use the retry logic.
+- [x] Test the changes to ensure retries work and errors are handled gracefully.

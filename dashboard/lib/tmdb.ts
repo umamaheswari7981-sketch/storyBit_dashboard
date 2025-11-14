@@ -8,6 +8,25 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = process.env.TMDB_API_KEY;
 
 /**
+ * Helper function to retry fetch requests on transient errors
+ */
+async function fetchWithRetry(url: string, options: RequestInit, retries: number = 3, delay: number = 1000): Promise<Response> {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, options);
+      return res; // Success, return the response
+    } catch (error) {
+      if (attempt === retries) {
+        throw error; // Last attempt failed, rethrow
+      }
+      // Wait before retrying
+      await new Promise(resolve => setTimeout(resolve, delay * attempt));
+    }
+  }
+  throw new Error('Unexpected error in fetchWithRetry');
+}
+
+/**
  * Helper function to fetch a general list of movies...
  */
 export async function fetchMovieList(endpoint: string): Promise<MoviesApiResponse> {
@@ -18,7 +37,7 @@ export async function fetchMovieList(endpoint: string): Promise<MoviesApiRespons
 
   const url = `${BASE_URL}${endpoint}?api_key=${API_KEY}`;
 
-  const res = await fetch(url, {
+  const res = await fetchWithRetry(url, {
     next: { revalidate: 3600 },
   });
 
@@ -41,7 +60,7 @@ export async function fetchMovieById(id: string): Promise<MovieDetail> {
 
   const url = `${BASE_URL}/movie/${id}?api_key=${API_KEY}`;
 
-  const res = await fetch(url, {
+  const res = await fetchWithRetry(url, {
     next: { revalidate: 86400 },
   });
 
