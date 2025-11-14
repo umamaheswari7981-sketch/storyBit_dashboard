@@ -28,7 +28,7 @@ export default function HeroBanner({ movie }: { movie: Movie }) {
 
         {/* Text Overlay Section */}
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent p-8 flex flex-col justify-end">
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-4 drop-shadow-lg group-hover:text-red-500 transition">
+          <h1 className="text-white text-5xl md:text-7xl font-extrabold mb-4 drop-shadow-lg group-hover:text-red-500 transition">
             {movie.title}
           </h1>
           <p className=" text-white text-lg max-w-xl line-clamp-3 mb-4">
